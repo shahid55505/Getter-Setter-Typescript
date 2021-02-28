@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typescript_getset</title>
+    <script src="getset.js"></script>
+  </head>
+  <body>
+   <table border=2px style="background-color:yellowgreen; ">
+     <tr>
+         <td>Name</td>
+         <td><input type="text" id="name"></td>
+     </tr>
+     <tr>
+        <td>Percentage</td>
+        <td><input type="text" id="per"></td>
+     </tr>
+     <tr>
+         <td>
+             <input type="submit" id="submit" value="submit" >
+         </td>
+     </tr>
+   </table>
+    
+
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+   <script>
+  
+     /*function createObject(){
+      try{  
+        var name = document.getElementById("name").value;
+        var per = document.getElementById("per").value;
+        var std = new Studentgetset(); 
+        std.stdName = name;
+        std.stdPer = per;
+        console.log(std.stdName)
+        console.log(std.stdPer)
+        }
+      
+        catch(ex){
+          alert("error hai "+ex);
+        }      
+     }
+   
+     <!-- TextBox validation -->
+     function validatedata(){
+       var ptrn = /^[^0-9_@]+$/ ;
+       
+       var name = document.getElementById("name").value;  
+       if(ptrn.test(name)){
+        document.getElementById("name").style.backgroundColor='green';
+        
+         }
+
+       else{
+        document.getElementById("name").style.backgroundColor='red';
+        }
+     }
+     document.getElementById("submit").addEventListener("click", createObject);
+     document.getElementById("name").addEventListener("keyup", validatedata);
+
+     */
+
+     /* jQuery code */
+     $.noConflict();
+     jQuery(document).ready(function($){
+
+     $("#submit").click(function(){
+      try{
+     var name= $("#name").val();
+     var per = $("#per").val();
+     var std = new Studentgetset();
+     std.stdName = name;
+     std.stdPer = per;
+     console.log(std.stdName);
+     console.log(std.stdPer);   
+     }
+     catch(ex){
+          alert("error hai "+ex);
+      }      
+     });
+
+    //TextBox validation
+     $("#name").keyup(function(){
+     var name= $("#name").val();  
+     var ptrn = /^[^0-9_@]+$/ ;
+      if(ptrn.test(name)){
+
+      $("#name").css("background-color", "green");
+     }
+     else{
+      $("#name").css("background-color", "red");
+     }
+
+     });
+
+     });
+   </script>
+  </body>
+</html>
